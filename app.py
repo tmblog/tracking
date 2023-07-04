@@ -1,8 +1,6 @@
 from flask import Flask, render_template, render_template_string
 from flask import jsonify
 from flask_cors import CORS, cross_origin
-import win32print
-import os
 
 app = Flask(__name__)
 cors = CORS(app)
