@@ -21,14 +21,22 @@ def get_parcel(id):
         address = "33 Pain Street, london S4 7GP"
     )
 
-@app.route("/directions/<id>")
+@app.get("/directions/<id>")
 def get_directions(id):
-    return jsonify(
-        idn = id,
-        latitude = "",
-        longitude = "",
-        accuracy = ""
-    )
+    
+    #GET THE DIRECTION DATA FROM DATABASE
+    #FOR THE EXAMPLE I WILL JUST USE DUMMY DATA
+    directions = [{"field1": "field1 data"},
+                  {"field1": "field2 data"}]
+    
+    """
+        Any data you want to pass to the template you just
+        list it as a keyword argument 
+        e.g if you wanted to add a variable for user
+        you would just add user=user_object 
+    """
+    return  render_template("directions.html", 
+                            directions=directions)
 
 if __name__ == '__main__':
    app.run(debug=True)
